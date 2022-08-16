@@ -43,7 +43,7 @@ describe("[+] Testing Product Model ",async()=>{
         expect(products.length).toBe(2)
         expect(products[0].product_name).toEqual(createdProduct0.product_name)
         expect(products[0].product_price).toEqual(createdProduct0.product_price)
-        expect(products[0].product_name).toEqual(createdProduct0.product_name)
+        expect(products[1].product_name).toEqual(createdProduct1.product_name)
         expect(products[1].product_price).toEqual(createdProduct1.product_price)
         
     })

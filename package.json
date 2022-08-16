@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "export NODE_ENV=test && db-migrate up --env test &&  npx tsc && jasmine && db-migrate reset --env test",
+    "test": "export NODE_ENV=test && npm run build  && db-migrate up --env test &&  npx tsc && jasmine && db-migrate reset --env test && npm run clean ",
     "test:windows": "SET NODE_ENV=test && db-migrate up --env test &&  npx tsc && jasmine && db-migrate reset --env test",
     "dev": "nodemon ./src/app.ts",
     "clean": "rimraf build/",
