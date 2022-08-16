@@ -1,13 +1,18 @@
 import express, { Application} from 'express'
 import * as dotenv from 'dotenv'
+import bodyParser from "body-parser"
 import {myCustomizedLogger} from './middlewares/mylogger.middleware'
 import helmet from 'helmet'
 import router from './routes/index'
 import {client} from "./database"
+
 dotenv.config()
 
 const app: Application = express()
-//////////
+
+app.use(bodyParser.urlencoded({ extended: false }))
+
+//Testing Database Connection 
 
 const test_db=async ():Promise<void>=>{
   try{

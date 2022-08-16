@@ -8,10 +8,12 @@ const authenticateing=(req:Request,res:Response,next:NextFunction):void=>{
 try{
 const authenticateHeader=req.header('Authorization')
 if(authenticateHeader){
+    
     const authenticateToken=authenticateHeader.split(" ")[1]
     const bearerRegexp:RegExp=/Bearer/
     const bearerHeader=authenticateHeader.split(" ")[0]
     if(authenticateToken && bearerRegexp.test(bearerHeader)){
+        
         if(checkToken(authenticateToken)){
             next()
         }
@@ -25,6 +27,9 @@ if(authenticateHeader){
     }
 
 }
+else{
+    notAuthenticated(req,res)
+}
 
 }
 catch(err){
@@ -32,4 +37,5 @@ catch(err){
 }
 
 }
+export {authenticateing}
 
