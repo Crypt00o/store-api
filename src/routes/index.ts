@@ -3,7 +3,7 @@ import { welcomeMessage, notFound } from '../controllers/main.controller'
 import {join} from 'path'
 import {userRouter} from "./store-api/users.router"
 import {productRouter} from "./store-api/products.router"
-
+import { orderRouter} from "./store-api/orders.router"
 //Declareing Static Directory for Serving Static Files 
 
 const staticDir:string=join(__dirname,'..','..','static')
@@ -25,7 +25,8 @@ router.use("/users",userRouter)
 
 // Useing /products Path as Route
 router.use("/products",productRouter) 
-
+// Useing /orderss Path as Route
+router.use("/orders",orderRouter) 
 
 // Response With Not Found for any invalid path
 
