@@ -1,5 +1,5 @@
 import { Request,Response } from "express";
-import {checkToken,generateToken} from "../utils/token_operator"
+import {generateToken} from "../utils/token_operator"
 import { User, UsersModel } from "../models/users.model";
 const usermodel=new UsersModel()
 
@@ -9,7 +9,7 @@ try{
     res.status(200).json({users:users})
 }
 catch(err){
-    res.status(500).json({"error":"error while getting Users "})
+    res.status(400).json({"error":"error while getting Users "})
 }
 }
 
@@ -20,7 +20,7 @@ const show=async(req:Request,res:Response):Promise<void>=>{
         res.status(200).json({user:user})
     }
     catch(err){
-        res.status(500).json({"error":"error while getting User "})
+        res.status(400).json({"error":"error while getting User "})
     }
 }
 
@@ -32,7 +32,7 @@ const create=async(req:Request,res:Response):Promise<void>=>{
         res.status(200).json({user:userCreated,user_token:userToken})
     }
     catch(err){
-        res.status(500).json({"error":"error while Creating User "})
+        res.status(400).json({"error":"error while Creating User "})
         console.log(err)
     }
 }
@@ -44,17 +44,23 @@ const update=async(req:Request,res:Response):Promise<void>=>{
 
     }
     catch(err){
-        res.status(500).json({"error":"error while Updateing User "})
+        res.status(400).json({"error":"error while Updateing User "})
     }
 }
 const _delete =async(req:Request,res:Response):Promise<void>=>{
 try{
     const user_id =req.params.id as string
-    const user=await usermodel.show(user_id)
-    res.status(200).json({user:user,message:"User Deleted"})
+    const user=await usermodel.delete(user_id)
+    if(user){
+        res.status(200).json({message:"User Deleted"})
+        }
+        else{
+        res.status(400).json({"error":"Can,t Delete , User Not Found"})
+        }
+    
 }
 catch(err){
-    res.status(500).json({"error":"error while Deleting User "})
+    res.status(400).json({"error":"error while Deleting User "})
 }
 }
 
