@@ -33,7 +33,7 @@ const create=async(req:Request,res:Response):Promise<void>=>{
     }
     catch(err){
         res.status(400).json({"error":"error while Creating User "})
-        console.log(err)
+        
     }
 }
 const update=async(req:Request,res:Response):Promise<void>=>{

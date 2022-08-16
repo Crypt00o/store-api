@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "export NODE_ENV=test && npm run build  && db-migrate up --env test &&  npx tsc && jasmine && db-migrate reset --env test && npm run clean ",
-    "test:windows": "SET NODE_ENV=test && db-migrate up --env test &&  npx tsc && jasmine && db-migrate reset --env test",
+    "test:windows": "SET NODE_ENV=test && npm run build && db-migrate up --env test &&  npx tsc && jasmine && db-migrate reset --env test && npm run clean",
     "dev": "nodemon ./src/app.ts",
     "clean": "rimraf build/",
     "build": "yarn clean && npx tsc",
@@ -15,8 +15,8 @@
     "migerate-up":"db-migrate up",
     "migerate-down":"db-migrate reset"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["store-api"],
+  "author": "eslam Moahmed moawed elabd '0xCrypt00o'",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

@@ -59,7 +59,6 @@ const index =async(req:Request,res:Response):Promise<void>=>{
         }
         catch(err){
             res.status(400).json({"error":"error while Deleting Order "})
-            console.log(err)
         }
         }
     

@@ -31,7 +31,7 @@ const index =async(req:Request,res:Response):Promise<void>=>{
         }
         catch(err){
             res.status(400).json({"error":"error while Creating Product "})
-            console.log(err)
+            
         }
     }
     const update=async(req:Request,res:Response):Promise<void>=>{
