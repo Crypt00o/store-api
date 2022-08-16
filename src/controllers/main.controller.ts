@@ -20,7 +20,7 @@ const myGeneralHtmLResponser=(req:Request,res:Response,statusCode:number,replay:
 }
 
 const welcomeMessage = (req: Request, res: Response): void => {
-myGeneralJsonResponser(req,res,200,{Server:'0xCrypt00o Server is Working'})
+myGeneralJsonResponser(req,res,200,{Server:'0xCrypt00o Store-Api Server is Working'})
 }
 
 const notFound = (req: Request, res: Response): void => {

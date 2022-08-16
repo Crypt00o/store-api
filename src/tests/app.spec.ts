@@ -28,7 +28,7 @@ describe('Testing endpoint Responses', () => {
 describe('Testing  Api / ', () => {
   it('test / ', async () => {
     const response = await request.get('/')
-    expect(response.body.Server).toEqual('0xCrypt00o Server is Working !')
+    expect(response.body.Server).toEqual('0xCrypt00o Store-Api Server is Working')
     expect(response.status).toEqual(200)
   })
 })
