@@ -23,7 +23,7 @@ describe('Testing endpoint Responses', () => {
   })
 })
 
-  //Testing Api
+//Testing Api
 
 describe('Testing  Api / ', () => {
   it('test / ', async () => {
@@ -32,5 +32,3 @@ describe('Testing  Api / ', () => {
     expect(response.status).toEqual(200)
   })
 })
-
-

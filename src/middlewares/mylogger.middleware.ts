@@ -11,12 +11,14 @@ const myCustomizedLogger = (req: Request, res: Response, next: NextFunction): vo
 
   // Define Public IP and Country alpha 2 code  as String and assign default value to it
 
-  let publicIP: string = 'Not Found'
-  let countryCode: string = 'Unknown'
+  let publicIP: string
+  publicIP = 'Not Found'
+  let countryCode: string
+  countryCode = 'Unknown'
 
   //for loop to check  regex every Element in Http Header Array if it match regex for IPv4 and two Capital letters for
 
-  for (let i: number = 0; i < rawHeaders.length; i++) {
+  for (let i = 0; i < rawHeaders.length; i++) {
     // i used regex expressions for ipv4 and counrty code from regexlib.com
 
     if (
@@ -50,4 +52,3 @@ const myCustomizedLogger = (req: Request, res: Response, next: NextFunction): vo
 }
 
 export { myCustomizedLogger }
-

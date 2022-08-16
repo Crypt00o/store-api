@@ -1,10 +1,10 @@
-import express, { Application} from 'express'
+import express, { Application } from 'express'
 import * as dotenv from 'dotenv'
-import bodyParser from "body-parser"
-import {myCustomizedLogger} from './middlewares/mylogger.middleware'
+import bodyParser from 'body-parser'
+import { myCustomizedLogger } from './middlewares/mylogger.middleware'
 import helmet from 'helmet'
 import router from './routes/index'
-import {client} from "./database"
+import { client } from './database'
 
 dotenv.config()
 
@@ -12,18 +12,17 @@ const app: Application = express()
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
-//Testing Database Connection 
+//Testing Database Connection
 
-const test_db=async ():Promise<void>=>{
-  try{
-  const connection = await client.connect()
-  const sqlQuery="SELECT now();"
-  const result = await connection.query(sqlQuery)
-  connection.release()
-  console.log(`[+] Connected [+] ${result.rows[0].now}`)
-  }
-  catch(err){
-console.log(err)
+const test_db = async (): Promise<void> => {
+  try {
+    const connection = await client.connect()
+    const sqlQuery = 'SELECT now();'
+    const result = await connection.query(sqlQuery)
+    connection.release()
+    console.log(`[+] Connected [+] ${result.rows[0].now}`)
+  } catch (err) {
+    console.log(err)
   }
 }
 test_db()
@@ -32,7 +31,7 @@ test_db()
 //Secure Http Headers With By Setting Some  Verious Values And Xss Filter
 
 //app.use(helmet())
-app.use(helmet({contentSecurityPolicy:false}))
+app.use(helmet({ contentSecurityPolicy: false }))
 
 //Logging Http Requests With My Customized MiddleWare
 
@@ -51,6 +50,3 @@ app.listen(PORT, () => {
 })
 
 export default app
-
-
-
