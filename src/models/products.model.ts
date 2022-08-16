@@ -5,7 +5,10 @@ product_price:string,
 product_name:string
 }
 
-class ProductModel{
+class ProductsModel{
+
+
+//Get ALl Products
 
     async index():Promise<Array<Product>>{
     try{
@@ -19,7 +22,9 @@ class ProductModel{
     }
 }
 
-async show(product_id:string):Promise<Product>{
+//Get One Product
+
+    async show(product_id:string):Promise<Product>{
     try{
         const connection = await client.connect()
         const sql_query=`SELECT * FROM products WHERE product_id=$1 ;`
@@ -32,7 +37,9 @@ async show(product_id:string):Promise<Product>{
     }
 }
 
-async create(product:Product): Promise<Product>{
+//Create Product
+
+    async create(product:Product): Promise<Product>{
     try{
         const connection = await client.connect()
         const sql_query=`INSERT INTO products(product_name,product_price) VALUES ($1,$2) RETURNING prodcut_id,product_name,product_price; `
@@ -45,7 +52,9 @@ async create(product:Product): Promise<Product>{
     }
 }
 
-async update(product:Product):Promise<Product>{
+//Update Product
+
+        async update(product:Product):Promise<Product>{
         try{
             const connection = await client.connect()
             const sql_query=`UPDATE products SET product_name=($1),product_price=($2) WHERE product_id=$3 RETURNING prodcut_id,product_name,product_price ;`
@@ -60,7 +69,9 @@ async update(product:Product):Promise<Product>{
 
 }
 
-async delete(prodcut_id:string):Promise<Product>{
+//Delete Product
+
+    async delete(prodcut_id:string):Promise<Product>{
     try{
         const connection = await client.connect()
         const sql_query=`DELETE FROM products WHERE proucts_id=$1 RETURNING prodcut_id,product_name,product_price;`
@@ -75,3 +86,4 @@ async delete(prodcut_id:string):Promise<Product>{
 
 }
 
+export {Product,ProductsModel}
