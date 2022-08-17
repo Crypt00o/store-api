@@ -30,12 +30,11 @@ const create = async (req: Request, res: Response): Promise<void> => {
       first_name: req.body.first_name,
       last_name: req.body.last_name
     }
-    console.log(user)
+    
     const userCreated = await usermodel.create(user)
     const userToken = generateToken(userCreated)
     res.status(200).json({ user: userCreated, user_token: userToken })
   } catch (err) {
-    console.log(err)
     res.status(400).json({ error: 'error while Creating User ' })
   }
 }
