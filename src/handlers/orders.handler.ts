@@ -26,7 +26,6 @@ const create = async (req: Request, res: Response): Promise<void> => {
     res.status(200).json({ order: orderCreated })
   } catch (err) {
     res.status(400).json({ error: 'error while Creating Order ' })
-    console.log(err)
   }
 }
 const update = async (req: Request, res: Response): Promise<void> => {
