@@ -49,22 +49,34 @@ These are the notes from a meeting with the frontend developer that describe wha
 - Ordered product : `/orders/:id/products {POST}` `[jwt token required] `
 [+]  URL : localhost:3000/orders/ , use order id as parameter , {POST : {"data to post": [product_id,quantity] } }
 ## Data Shapes
+
 #### Product
-- product_id
-- product_name
-- product_price
+| Column       | Data Type      |   Constraints  |
+| :---         |    :----:      |          ---:  |
+| product_id   | uuid_v4        | PRIMARY KEY    |
+| product_name | VARCHAR(64)    | NOT NULL       |
+| product_price| VARCHAR(255)   | NOT NULL       |
 
 #### User
-- user_id
-- first_Name
-- email
-- last_Name
-- password
-
+| Column       | Data Type   |      Constraints     |
+| :---         |    :----:   |             ---:     |
+| user_id   | uuid_v4        | PRIMARY KEY          |
+| email     | VARCHAR(64)    | NOT NULL  UNIQUE     |
+| password  | VARCHAR(128)   | NOT NULL             |
+| first_name| VARCHAR(32)    | NOT NULL             |
+| last_name | VARCHAR(32)    | NOT NULL             |
 #### Orders
-- order_id
-- product_id of each product in the order
-- quantity of each product in the order
-- user_id
-- order_status of order (active or complete)
 
+| Column       | Data Type     |   Constraints                    |
+| :---         |    :----:     |          ---:                    |
+| order_id     | uuid_v4       | PRIMARY KEY                      |
+| order_status | VARCHAR(32)   | NOT NULL                         |
+| user_id      | uuid_v4       |NOT NULL REFERENCES users(user_id)|
+
+#### Products_Orders
+| Column         | Data Type   |   Constraints                           |
+| :---           |    :----:   |          ---:                           |
+|product_order_id| uuid_v4     | PRIMARY KEY                             |
+| order_id       | uuid_v4     | NOT NULL REFERENCES orders(order_id)    |
+| product_id     | uuid_v4     | NOT NULL REFERENCES products(product_id)|
+| quantity       | INTEGER     | NOT NULL                                |

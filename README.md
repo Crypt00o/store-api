@@ -1,9 +1,9 @@
 # Udacity Storefront Backend Project
 
-##Intoduction 
+## Intoduction 
 This Repositoriy Contain A Backend App Build With Express, To Get Started colne This Repositoriy and run ` npm install ` at The Root of The Porject
 
-##Required Technolgies 
+## Required Technolgies 
 - express
 - typescript
 - bcrypt
@@ -17,7 +17,7 @@ This Repositoriy Contain A Backend App Build With Express, To Get Started colne 
 
 ## Createing And Connecting To Database
 run `psql -U postgres`
-#####in psql run :
+##### in psql run :
 - `CREATE USER postgres WITH PASSWORD 'postgres';`
 -  `CREATE DATABASE store;`
 -  `CREATE DATABASE store_test;`
@@ -52,5 +52,5 @@ run `psql -U postgres`
 - `npm run format` to format project with prettier
 - `npm run lint` to lint project with eslint
 
-##EndPoints and Api  Explained at [REQUIREMENT.md](REQUIREMENTS.md) file
+## EndPoints and Api  Explained at [REQUIREMENT.md](REQUIREMENTS.md) file
 
