@@ -11,6 +11,7 @@ dotenv.config()
 const app: Application = express()
 
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 //Testing Database Connection
 

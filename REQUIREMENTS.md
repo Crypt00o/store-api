@@ -63,8 +63,8 @@ These are the notes from a meeting with the frontend developer that describe wha
 | user_id   | uuid_v4        | PRIMARY KEY          |
 | email     | VARCHAR(64)    | NOT NULL  UNIQUE     |
 | password  | VARCHAR(128)   | NOT NULL             |
-| first_name| VARCHAR(32)    | NOT NULL             |
-| last_name | VARCHAR(32)    | NOT NULL             |
+| first_name| VARCHAR(64)    | NOT NULL             |
+| last_name | VARCHAR(64)    | NOT NULL             |
 #### Orders
 
 | Column       | Data Type     |   Constraints                    |

@@ -2,7 +2,7 @@ import { checkToken } from '../utils/token_operator'
 import { Request, Response, NextFunction } from 'express'
 
 const notAuthenticated = (req: Request, res: Response): void => {
-  res.status(404).json({ Authentication: 'Failed' })
+  res.status(401).json({ Authentication: 'Failed' })
 }
 const authenticateing = (req: Request, res: Response, next: NextFunction): void => {
   try {
