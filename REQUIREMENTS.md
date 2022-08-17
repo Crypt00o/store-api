@@ -5,10 +5,10 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## API Endpoints
 #### Products
-- Index `/products {GET}` `[jwt token required] `
+- Index `/products {GET}` 
 [+] URL : localhost:3000/products {GET}
 
-- Show `products/:product_id   {GET}` `[jwt token required] `
+- Show `products/:product_id   {GET}` 
 [+]  URL : localhost:3000/products/id {GET : {"use as parameter " : [id] } }
 - Create `/products/ {POST}` `[jwt token required] `
 [+]  URL : localhost:3000/products/ {POST : {"data to post": [price,name] } }
