@@ -25,12 +25,12 @@ run `psql -U postgres`
 - `\c store`
 - `\c store_test`
 
-##Database Migerations
+## Database Migerations
 - run `npm run migerate-up` for makeing Database Migeration on Database
 - run `npm run migerate-down` for reset Database Migeration on Database
 
-##Environment Variables
-#####make a filed call .env in the root of the project and set this env variables inside it
+## Environment Variables
+##### make a filed call .env in the root of the project and set this env variables inside it
 - `POSTGRES_HOST=localhost`
 - `POSTGRES_DB=store`
 - `POSTGRES_PORT=5432`
